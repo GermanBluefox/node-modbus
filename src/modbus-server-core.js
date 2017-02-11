@@ -10,6 +10,7 @@ var core = stampit()
     var coils
     var holding
     var input
+    var discrete
     var handler = { }
 
     var init = function () {
@@ -29,6 +30,11 @@ var core = stampit()
         input = Buffer.alloc(1024, 0)
       } else {
         input = this.input
+      }
+      if (!this.discrete) {
+        discrete = Buffer.alloc(1024)
+      } else {
+        discrete = this.discrete
       }
     }.bind(this)
 
@@ -78,6 +84,10 @@ var core = stampit()
 
     this.getHolding = function () {
       return holding
+    }
+
+    this.getDiscrete = function () {
+      return discrete
     }
 
     init()
